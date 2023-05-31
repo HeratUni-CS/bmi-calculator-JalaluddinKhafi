@@ -5,25 +5,21 @@ import 'ReusFiles.dart';
 const bottomContainerColor = Color(0xFFEB1555);
 const actCardColor = Color(0xFF111428);
 const inActiveCardColor=Color(0xFF1D1F33);
+enum gender{
+  male,
+female,
+}
+
+
 class InputPage extends StatefulWidget {
+
   @override
   State<InputPage> createState() => _InputPageState();
 }
 
 class _InputPageState extends State<InputPage> {
 
-  Color maleColor=inActiveCardColor;
-  Color femaleColor=inActiveCardColor;
-  void genderSelected(int i) {
-    if (i == 1) {
-      maleColor = actCardColor;
-      femaleColor = inActiveCardColor;
-    } else {
-      maleColor = inActiveCardColor;
-      femaleColor = actCardColor;
-    }
-  }
-
+  gender? selectGender;
 
   @override
   Widget build(BuildContext context) {
@@ -38,16 +34,23 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   reusibleW(
                     onPressed: (){
-                      print('male selected');
+                      setState(() {
+                        selectGender= gender.male;
+                      });
                     },
-                    color: inActiveCardColor,
+                    color: (selectGender== gender.male) ? actCardColor: inActiveCardColor,
                     child: IconContent(
                       iconData: FontAwesomeIcons.mars,
                       label: 'MALE',
                     ),
                   ),
                   reusibleW(
-                    color: inActiveCardColor,
+                    onPressed: (){
+                      setState(() {
+                        selectGender=gender.female;
+                      });
+                    },
+                    color: (selectGender ==gender.female) ? actCardColor: inActiveCardColor,
                     child: IconContent(
                       iconData: FontAwesomeIcons.venus,
                       label: 'FEMALE',
@@ -58,9 +61,7 @@ class _InputPageState extends State<InputPage> {
             ),
             reusibleW(
               color: actCardColor,
-              child: Column(
-                children: [],
-              ),
+
             ),
             Expanded(
               child: Row(

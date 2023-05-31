@@ -15,15 +15,15 @@ class _InputPageState extends State<InputPage> {
         children: [
           Expanded(child:Row(
             children: [
-              reusibleW(),
-              reusibleW(),
+              reusibleW(color: Color(0xFF111428)),
+              reusibleW(color: Color(0xFF111428)),
             ],
           )),
-          reusibleW(),
+          reusibleW(color: Color(0xFF111428)),
           Expanded(child: Row(
             children: [
-             reusibleW(),
-              reusibleW(),
+             reusibleW(color: Color(0xFF111428)),
+              reusibleW(color: Color(0xFF111428)),
             ],
           )),
         ],
@@ -33,9 +33,10 @@ class _InputPageState extends State<InputPage> {
 }
 
 class reusibleW extends StatelessWidget {
-  const reusibleW({
-    super.key,
-  });
+
+  reusibleW({required this.color});
+
+Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,7 @@ class reusibleW extends StatelessWidget {
       margin: EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Color(0xFF111428),
+        color:color,
       ),
     ));
   }

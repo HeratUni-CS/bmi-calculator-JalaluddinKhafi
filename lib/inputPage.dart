@@ -4,13 +4,27 @@ import 'IconsContent.dart';
 import 'ReusFiles.dart';
 const bottomContainerColor = Color(0xFFEB1555);
 const actCardColor = Color(0xFF111428);
-
+const inActiveCardColor=Color(0xFF1D1F33);
 class InputPage extends StatefulWidget {
   @override
   State<InputPage> createState() => _InputPageState();
 }
 
 class _InputPageState extends State<InputPage> {
+
+  Color maleColor=inActiveCardColor;
+  Color femaleColor=inActiveCardColor;
+  void genderSelected(int i) {
+    if (i == 1) {
+      maleColor = actCardColor;
+      femaleColor = inActiveCardColor;
+    } else {
+      maleColor = inActiveCardColor;
+      femaleColor = actCardColor;
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,14 +37,17 @@ class _InputPageState extends State<InputPage> {
               child: Row(
                 children: [
                   reusibleW(
-                    color: actCardColor,
+                    onPressed: (){
+                      print('male selected');
+                    },
+                    color: inActiveCardColor,
                     child: IconContent(
                       iconData: FontAwesomeIcons.mars,
                       label: 'MALE',
                     ),
                   ),
                   reusibleW(
-                    color: actCardColor,
+                    color: inActiveCardColor,
                     child: IconContent(
                       iconData: FontAwesomeIcons.venus,
                       label: 'FEMALE',

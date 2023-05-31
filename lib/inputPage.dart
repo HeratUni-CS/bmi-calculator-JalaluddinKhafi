@@ -23,7 +23,17 @@ class _InputPageState extends State<InputPage> {
                 reusibleW(color: actCardColor,
                   child: Column(
                     children: [
-                      Icon(FontAwesomeIcons.mars)
+                      Icon(FontAwesomeIcons.mars,
+                      size: 70,),
+                      SizedBox(height: 15,
+                      ),
+                      Text('Male',
+                      style:TextStyle(
+                        fontSize: 30,
+                        color: Color(0xFF868892),
+                        fontWeight: FontWeight.bold,
+                      ),
+                      )
                     ],
                   ),
 

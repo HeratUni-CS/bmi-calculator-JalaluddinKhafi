@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'IconsContent.dart';
+import 'ReusFiles.dart';
 const bottomContainerColor = Color(0xFFEB1555);
 const actCardColor = Color(0xFF111428);
 
@@ -18,47 +20,39 @@ class _InputPageState extends State<InputPage> {
         body: Column(
           children: [
             Expanded(
-                child: Row(
-              children: [
-                reusibleW(color: actCardColor,
-                  child: Column(
-                    children: [
-                      Icon(FontAwesomeIcons.mars,
-                      size: 70,),
-                      SizedBox(height: 15,
-                      ),
-                      Text('Male',
-                      style:TextStyle(
-                        fontSize: 30,
-                        color: Color(0xFF868892),
-                        fontWeight: FontWeight.bold,
-                      ),
-                      )
-                    ],
-                  ),
-
-                ),
-                reusibleW(color: actCardColor,
-
-                ),
-              ],
-            ),
-            ),
-            reusibleW(color: actCardColor,
-              child: Column(
+              child: Row(
                 children: [
-
+                  reusibleW(
+                    color: actCardColor,
+                    child: IconContent(
+                      iconData: FontAwesomeIcons.mars,
+                      label: 'MALE',
+                    ),
+                  ),
+                  reusibleW(
+                    color: actCardColor,
+                    child: IconContent(
+                      iconData: FontAwesomeIcons.venus,
+                      label: 'FEMALE',
+                    ),
+                  ),
                 ],
+              ),
+            ),
+            reusibleW(
+              color: actCardColor,
+              child: Column(
+                children: [],
               ),
             ),
             Expanded(
               child: Row(
                 children: [
-                  reusibleW(color: actCardColor,
-
+                  reusibleW(
+                    color: actCardColor,
                   ),
-                  reusibleW(color: actCardColor,
-
+                  reusibleW(
+                    color: actCardColor,
                   ),
                 ],
               ),
@@ -73,22 +67,6 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class reusibleW extends StatelessWidget {
-  reusibleW({required this.color, this.child});
 
-  final Color color;
-  final Widget? child;
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        margin: EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: color,
-        ),
-        child:child ,
-      ),
-    );
-  }
-}
+
+

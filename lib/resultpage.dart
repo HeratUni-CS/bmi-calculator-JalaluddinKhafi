@@ -24,23 +24,24 @@ class resultPage extends StatelessWidget {
           ),),
           Expanded(
             flex: 5,
-            child: reusibleW(
-              color: kactCardColor,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text("NORMAL",
-                  style: kResultTextStyle,
-                  ),
-                  Text("25",
-                  style: kBMITextStyle,),
-                  Text('You are goot to go',
-                  style: kBodyTextStyle,),
+              child: reusibleW(
+                color: kactCardColor,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text("NORMAL",
+                    style: kResultTextStyle,
+                    ),
+                    Text("25",
+                    style: kBMITextStyle,),
+                    Text('You are goot to go',
+                    style: kBodyTextStyle,),
 
-                ],
-              )
-            ),
+                  ],
+                )
+              ),
+
           )
         ],
       ),

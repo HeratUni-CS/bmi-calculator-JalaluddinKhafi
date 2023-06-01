@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'IconsContent.dart';
@@ -82,6 +83,12 @@ class _InputPageState extends State<InputPage> {
                   SliderTheme(
                     data: SliderThemeData(
                       thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15),
+                      trackHeight: 1,
+                      overlayShape: RoundSliderOverlayShape(overlayRadius: 25),
+                      activeTickMarkColor: Colors.white,
+                      inactiveTickMarkColor: Color(0xFF888993),
+                      thumbColor: Color(0xFFEB1555),
+                      overlayColor: Color(0x3CEB1555),
                     ),
                     child: Slider(
                       value: height.toDouble(),
@@ -93,9 +100,6 @@ class _InputPageState extends State<InputPage> {
                       },
                       min:120,
                       max: 220,
-                      activeColor: Colors.white,
-                      inactiveColor: Color(0xFF888993),
-                      thumbColor: Color(0xFFEB1555),
 
                     ),
                   )
@@ -107,6 +111,26 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   reusibleW(
                     color: kactCardColor,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('WEIGHT',
+                        style: klableStyle,
+                        ),
+                        Text('20',
+                        style: knumberStyle,
+
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RIconButton(iconData: Icons.add,),
+                            SizedBox(width: 10,),
+                            RIconButton(iconData: Icons.,),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                   reusibleW(
                     color: kactCardColor,
@@ -121,6 +145,23 @@ class _InputPageState extends State<InputPage> {
             )
           ],
         ));
+  }
+}
+class RIconButton extends StatelessWidget {
+IconData iconData;
+RIconButton({required this.iconData});
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(onPressed: () {},
+    fillColor: Color(0xFF1C1F32),
+      shape: CircleBorder(),
+      constraints: const BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
+      ),
+      child: Icon(iconData),
+
+    );
   }
 }
 

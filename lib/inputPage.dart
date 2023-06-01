@@ -36,7 +36,7 @@ class _InputPageState extends State<InputPage> {
                         selectGender= gender.male;
                       });
                     },
-                    color: (selectGender== gender.male) ? actCardColor: inActiveCardColor,
+                    color: (selectGender== gender.male) ? kactCardColor: kinActiveCardColor,
                     child: IconContent(
                       iconData: FontAwesomeIcons.mars,
                       label: 'MALE',
@@ -48,7 +48,7 @@ class _InputPageState extends State<InputPage> {
                         selectGender=gender.female;
                       });
                     },
-                    color: (selectGender ==gender.female) ? actCardColor: inActiveCardColor,
+                    color: (selectGender ==gender.female) ? kactCardColor: kinActiveCardColor,
                     child: IconContent(
                       iconData: FontAwesomeIcons.venus,
                       label: 'FEMALE',
@@ -58,24 +58,29 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
             reusibleW(
-              color: actCardColor,
-
+              color: kactCardColor,
+              child: Column(
+                children: [
+                  Text('HEIGHT',
+                  style: klableStyle,)
+                ],
+              ),
             ),
             Expanded(
               child: Row(
                 children: [
                   reusibleW(
-                    color: actCardColor,
+                    color: kactCardColor,
                   ),
                   reusibleW(
-                    color: actCardColor,
+                    color: kactCardColor,
                   ),
                 ],
               ),
             ),
             Container(
               height: 80,
-              color: bottomContainerColor,
+              color: kbottomContainerColor,
               margin: EdgeInsets.only(top: 15),
             )
           ],

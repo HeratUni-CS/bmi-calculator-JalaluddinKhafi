@@ -1,9 +1,14 @@
-import 'package:bmi_starting/bottomButton.dart';
+import 'package:bmi_starting/conponects/bottomButton.dart';
 import 'package:flutter/material.dart';
 import 'package:bmi_starting/constant.dart';
-import 'package:bmi_starting/ReusFiles.dart';
+import 'package:bmi_starting/conponects/ReusFiles.dart';
 
 class resultPage extends StatelessWidget {
+  String result;
+  String bmi;
+  String interp;
+  resultPage({required this.result,required this.bmi,required this.interp});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,15 +38,15 @@ class resultPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      "NORMAL",
+                      result,
                       style: kResultTextStyle,
                     ),
                     Text(
-                      "25",
+                      bmi,
                       style: kBMITextStyle,
                     ),
                     Text(
-                      'You are goot to go',
+                      interp,
                       style: kBodyTextStyle,
                     ),
                   ],

@@ -1,11 +1,11 @@
-import 'package:bmi_starting/resultpage.dart';
+import 'package:bmi_starting/Screens/resultpage.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'IconsContent.dart';
-import 'ReusFiles.dart';
-import 'constant.dart';
-import 'bottomButton.dart';
-import 'RoundIconButton.dart';
+import '../conponects/IconsContent.dart';
+import '../conponects/ReusFiles.dart';
+import '../constant.dart';
+import '../conponects/bottomButton.dart';
+import '../conponects/RoundIconButton.dart';
 enum gender {
   male,
   female,
@@ -213,7 +213,11 @@ class _InputPageState extends State<InputPage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return resultPage();
+                    return resultPage(
+                      result: 'Normal',
+                      bmi: '22',
+                      interp: 'good for go',
+                    );
                   },
                 ),
               );

@@ -20,7 +20,8 @@ class _InputPageState extends State<InputPage> {
 
   gender? selectGender;
   int height=165;
-
+  int weight=50;
+  int age =20;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,16 +118,27 @@ class _InputPageState extends State<InputPage> {
                         Text('WEIGHT',
                         style: klableStyle,
                         ),
-                        Text('20',
+                        Text(
+                          weight.toString(),
                         style: knumberStyle,
 
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            RIconButton(iconData: Icons.add,),
+                            RIconButton(iconData: Icons.add, onPressed: (){
+                              setState(() {
+                                weight++;
+                              });
+                            },),
                             SizedBox(width: 10,),
-                            RIconButton(iconData: Icons.,),
+                            RIconButton(
+                              onPressed: (){
+                                setState(() {
+                                weight--;
+                              });                                weight--;
+                              },
+                              iconData: Icons.remove,),
                           ],
                         ),
                       ],
@@ -134,6 +146,37 @@ class _InputPageState extends State<InputPage> {
                   ),
                   reusibleW(
                     color: kactCardColor,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('AGE',
+                          style: klableStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: knumberStyle,
+
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RIconButton(iconData: Icons.add, onPressed: (){
+                              setState(() {
+                                age++;
+                              });
+                            },),
+                            SizedBox(width: 10,),
+                            RIconButton(
+                              onPressed: (){
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                              iconData: Icons.remove,),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -148,13 +191,15 @@ class _InputPageState extends State<InputPage> {
   }
 }
 class RIconButton extends StatelessWidget {
-IconData iconData;
-RIconButton({required this.iconData});
+
+  RIconButton({required this.iconData,required this.onPressed});
+  final IconData iconData;
+  final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
-    return RawMaterialButton(onPressed: () {},
-    fillColor: Color(0xFF1C1F32),
-      shape: CircleBorder(),
+    return RawMaterialButton(onPressed: onPressed,
+    fillColor: const Color(0xFF1C1F32),
+      shape: const CircleBorder(),
       constraints: const BoxConstraints.tightFor(
         width: 56.0,
         height: 56.0,

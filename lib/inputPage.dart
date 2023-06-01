@@ -76,19 +76,29 @@ class _InputPageState extends State<InputPage> {
                       Text('cm',
                       style: klableStyle,
                       ),
-                      Slider(
-                          value: height.toDouble(),
 
-                          onChanged: (double value){
-                            setState(() {
-                              height=value.round();
-                            });
-                          }
-
-
-                      )
                     ],
                   ),
+                  SliderTheme(
+                    data: SliderThemeData(
+                      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15),
+                    ),
+                    child: Slider(
+                      value: height.toDouble(),
+
+                      onChanged: (double value){
+                        setState(() {
+                          height=value.round();
+                        });
+                      },
+                      min:120,
+                      max: 220,
+                      activeColor: Colors.white,
+                      inactiveColor: Color(0xFF888993),
+                      thumbColor: Color(0xFFEB1555),
+
+                    ),
+                  )
                 ],
               ),
             ),
@@ -107,7 +117,7 @@ class _InputPageState extends State<InputPage> {
             Container(
               height: 80,
               color: kbottomContainerColor,
-              margin: EdgeInsets.only(top: 15),
+              margin: EdgeInsets.only(top: 10),
             )
           ],
         ));

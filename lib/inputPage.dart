@@ -185,6 +185,12 @@ class _InputPageState extends State<InputPage> {
               height: 80,
               color: kbottomContainerColor,
               margin: EdgeInsets.only(top: 10),
+              child: Center(
+                child: Text(
+                  'CALCULATE YOUR BMI',
+                  style: klargeButtonStyle,
+                ),
+              ),
             )
           ],
         ));

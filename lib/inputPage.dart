@@ -18,6 +18,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
 
   gender? selectGender;
+  int height=165;
 
   @override
   Widget build(BuildContext context) {
@@ -60,9 +61,34 @@ class _InputPageState extends State<InputPage> {
             reusibleW(
               color: kactCardColor,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('HEIGHT',
-                  style: klableStyle,)
+                  style: klableStyle,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(height.toString(),
+                        style: knumberStyle,
+                      ),
+                      Text('cm',
+                      style: klableStyle,
+                      ),
+                      Slider(
+                          value: height.toDouble(),
+
+                          onChanged: (double value){
+                            setState(() {
+                              height=value.round();
+                            });
+                          }
+
+
+                      )
+                    ],
+                  ),
                 ],
               ),
             ),
